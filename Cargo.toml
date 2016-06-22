@@ -6,7 +6,7 @@ homepage = "https://github.com/mattforni/touch"
 keywords = ["file", "directory", "fs", "filesystem"]
 license = "MIT"
 name = "touch"
-readme = "README"
+readme = "README.md"
 repository = "https://github.com/mattforni/touch"
 version = "0.0.1"
 
