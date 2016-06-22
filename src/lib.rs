@@ -31,7 +31,8 @@
 //!
 //! fn main() {
 //!     // TODO EXAMPLE
-//!     file::write("/tmp/testfile", "this is a test", true);
+//!     file::write("/tmp/.example", "This is an example", true);
+//!     file::delete("/tmp/.example");
 //! }
 //! ```
 //!
@@ -53,6 +54,7 @@ pub mod file;
 
 mod error;
 mod operation;
+#[cfg(test)] mod tst;
 
 /// A specialized Result type for I/O operations.
 ///

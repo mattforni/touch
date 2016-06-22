@@ -78,9 +78,9 @@ pub fn read(path: &str) -> Result<String> {
 /// # Failures
 /// Fails if the file cannot be created or written to for any reason.
 pub fn write(path: &str, content: &str, truncate: bool) -> Result<()> {
-    let mut file = try!(create(path, truncate)).unwrap();
-
     if content.is_empty() { return Ok(()); }
+
+    let mut file = try!(create(path, truncate)).unwrap();
 
     try!(file.write_all(content.as_bytes()).map_err(|error| {
         Error::with_cause(&Operation::Write, path, error)
