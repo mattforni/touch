@@ -1,0 +1,16 @@
+[package]
+authors = ["Matthew Fornaciari <mattforni@gmail.com>"]
+description = "A thin wrapper around file and directory operations designed to take remove some of tediousness."
+homepage = "https://github.com/mattforni/touch"
+keywords = ["file", "directory", "fs", "filesystem"]
+license = "MIT"
+name = "touch"
+repository = "https://github.com/mattforni/touch"
+version = "0.0.1"
+
+[lib]
+name = "touch"
+path = "src/lib.rs"
+
+[dependencies]
+log = "0"
