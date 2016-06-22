@@ -1,6 +1,6 @@
 [package]
 authors = ["Matthew Fornaciari <mattforni@gmail.com>"]
-description = "A thin wrapper around file and directory operations designed to take remove some of tediousness."
+description = "A thin wrapper around file and directory operations designed to remove some of tediousness from IO."
 documentation = "http://mattforni.github.io/rust/doc/touch"
 homepage = "https://github.com/mattforni/touch"
 keywords = ["file", "directory", "fs", "filesystem"]
