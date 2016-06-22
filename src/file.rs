@@ -1,4 +1,5 @@
-//! TODO add docs
+//! This module contains basic methods to manipulate the contents of local files.
+//! All methods in this module represent cross-platform filesystem operations.
 
 use std::fs::{self,File};
 use std::io::{Read,Write};
@@ -42,7 +43,7 @@ pub fn create(path: &str, truncate: bool) -> Result<Option<File>> {
     Ok(Some(file))
 }
 
-/// Deletes the file indicated by the provided path if it exists.
+/// Idempotently deletes the file indicated by the provided path.
 ///
 /// # Failures
 /// Fails if the file cannot be deleted for any reason.

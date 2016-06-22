@@ -1,10 +1,6 @@
 // Copyright 2016 Matthew Fornaciari <mattforni@gmail.com>
 //! A dead simple wrapper around file and directory manipulation.
 //!
-//! Any errors encountered during io will be returned wrapped in a `touch::Error`.
-//!
-//! That's it!
-//!
 //! # Usage
 //!
 //! This crate is [on crates.io](https://crates.io/crates/touch) and can be
@@ -24,20 +20,44 @@
 //! # Example
 //!
 //! ```rust
-//! extern crate log;
 //! extern crate touch;
 //!
+//! use touch::exists;
+//! use touch::dir;
 //! use touch::file;
 //!
+//! const DIR: &'static str = "/tmp/touch";
+//! const FILE_NAME: &'static str = ".example";
+//!
 //! fn main() {
-//!     // TODO EXAMPLE
-//!     file::write("/tmp/.example", "This is an example", true);
-//!     file::delete("/tmp/.example");
+//!     assert!(!exists(DIR));
+//!     assert!(!exists(&path()));
+//!
+//!     // Write
+//!     let content = "Content";
+//!     assert!(file::write(&path(), content, false).is_ok());
+//!
+//!     // Read
+//!     let mut output = file::read(&path());
+//!     assert_eq!(content, output.unwrap());
+//!
+//!     // Overwrite
+//!     let new_content = "New Content";
+//!     assert!(file::write(&path(), new_content, true).is_ok());
+//!     output = file::read(&path());
+//!     assert_eq!(new_content, output.unwrap());
+//!
+//!     // Delete
+//!     assert!(dir::delete(DIR).is_ok());
+//!     assert!(!exists(&path()));
+//!     assert!(!exists(DIR));
+//! }
+//!
+//! fn path() -> String {
+//!     format!("{}/{}", DIR, FILE_NAME)
 //! }
 //! ```
-//!
 
-// TODO add tests
 #![doc(html_logo_url = "https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png",
     html_favicon_url = "https://www.rust-lang.org/favicon.ico",
     html_root_url = "https://doc.rust-lang.org/")]

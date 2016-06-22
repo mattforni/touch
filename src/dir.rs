@@ -1,4 +1,5 @@
-//! TODO add docs
+//! This module contains basic methods to manipulate the contents of local directories.
+//! All methods in this module represent cross-platform filesystem operations.
 
 use std::fs;
 
@@ -29,7 +30,7 @@ pub fn create(path: &str) -> Result<()> {
     }
 }
 
-/// Deletes the directory indicated by the provided path if it exists.
+/// Idempotently deletes the file indicated by the provided path.
 ///
 /// # Failures
 /// Fails if the directory cannot be deleted for any reason.
